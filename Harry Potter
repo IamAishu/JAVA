@@ -1,0 +1,14 @@
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    //Try out your code here
+    Scanner sc=new Scanner(System.in);
+    int a = sc.nextInt();
+    a=Math.abs(a);
+    int f=a/1000;
+    int l=a%10;
+    System.out.println(f+l);
+  }
+}
