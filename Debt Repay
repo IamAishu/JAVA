@@ -1,0 +1,19 @@
+import java.util.*;
+class Main
+{
+  public static void main(String args[])
+  {
+    Scanner sc=new Scanner(System.in);
+    int p = sc.nextInt();
+      int r = sc.nextInt();
+      int n = sc.nextInt();
+    float SI = (float)(p*n*r)/100;
+    float amount=(float)p+SI;
+    float d=(float)(SI*2)/100;
+    float f=(float)amount-d;
+    System.out.printf("%.2f\n",SI);
+    System.out.printf("%.2f\n",amount);
+    System.out.printf("%.2f\n",d);
+    System.out.printf("%.2f\n",f);
+  }
+}
