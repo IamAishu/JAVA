@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class Main{
+public static void main(String[] args) {
+        int age, yop, fi, sa;
+        float st, ap;
+        Scanner scanner = new Scanner(System.in);
+        age = scanner.nextInt();
+        yop = scanner.nextInt();
+        fi = scanner.nextInt();
+        sa = scanner.nextInt();
+        st = scanner.nextFloat();
+        ap = scanner.nextFloat();
+        
+        // Checking eligibility
+        if ((yop >= 2021) && (age >= 18 && age < 21) && (st >= 60) && (ap >= 80)) {
+            if (sa <= 2 && fi <= 200000) {
+                System.out.println("Eligible");
+            } else if ((fi >= 200000 && fi < 250000) && (st >= 80) && (ap >= 90)) {
+                System.out.println("Partially Eligible");
+            } else {
+                System.out.println("Not Eligible");
+            }
+        } 
+      else {
+            System.out.println("Not Eligible");
+        }
+        scanner.close();
+    }
+}
