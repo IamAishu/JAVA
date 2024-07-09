@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        // Read input
+        int totalFriends = scanner.nextInt();
+        int numberOfTeams = scanner.nextInt();
+        
+        // Calculate number of friends in each team
+        int friendsPerTeam = totalFriends / numberOfTeams;
+        
+        // Calculate number of friends left out
+        int friendsLeftOut = totalFriends % numberOfTeams;
+        
+        // Print output
+        System.out.println("The number of friends in each team is " + friendsPerTeam + " and left out is " + friendsLeftOut);
+        
+        scanner.close();
+    }
+}
