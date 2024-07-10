@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int tb, tr, rs, bb, z1, z2, zz;
+        tb = scanner.nextInt();
+        tr = scanner.nextInt();
+        rs = scanner.nextInt();
+        bb = scanner.nextInt();
+        zz = tb / 6;
+        z1 = bb / 6;
+        z2 = bb % 6;
+        float z3 = z1 + z2 * 0.1f;
+        float z4 = rs / z3;
+        float ans = (float) tr / zz;
+        System.out.println(zz);
+        System.out.printf("%.1f\n", z3);
+        System.out.printf("%.1f\n", z4);
+        System.out.printf("%.1f\n", ans);
+        if (z4 > ans)
+            System.out.println("Eligible to Win");
+        else
+            System.out.println("Not Eligible to Win");
+    }
+}
