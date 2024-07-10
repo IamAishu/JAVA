@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Main{
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int flipkartPrice = scanner.nextInt();
+        int flipkartDiscount = scanner.nextInt();
+        int flipkartShipping = scanner.nextInt();
+        int snapdealPrice = scanner.nextInt();
+        int snapdealDiscount = scanner.nextInt();
+        int snapdealShipping = scanner.nextInt();
+        int amazonPrice = scanner.nextInt();
+        int amazonDiscount = scanner.nextInt();
+        int amazonShipping = scanner.nextInt();
+        double finalFlipkart = calculateFinalPrice(flipkartPrice, flipkartDiscount, flipkartShipping);
+        double finalSnapdeal = calculateFinalPrice(snapdealPrice, snapdealDiscount, snapdealShipping);
+        double finalAmazon = calculateFinalPrice(amazonPrice, amazonDiscount, amazonShipping);
+        System.out.printf("In Flipkart: Rs.%.0f%n", finalFlipkart);
+        System.out.printf("In Snapdeal: Rs.%.0f%n", finalSnapdeal);
+        System.out.printf("In Amazon: Rs.%.0f%n", finalAmazon);
+        if (finalFlipkart <= finalSnapdeal && finalFlipkart <= finalAmazon) {
+            System.out.println("Choose Flipkart");
+        } else if (finalSnapdeal <= finalFlipkart && finalSnapdeal <= finalAmazon) {
+            System.out.println("Choose Snapdeal");
+        } else {
+            System.out.println("Choose Amazon");
+        }
+    }
+private static double calculateFinalPrice(int price, int discount, int shipping) {
+        return price * (1 - discount / 100.0) + shipping;
+    }
+}
