@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read number of elements
+        int N = scanner.nextInt();
+
+        // Read the array elements
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Two pointers approach
+        int left = 0, right = N - 1;
+
+        while (left < right) {
+            // Move left pointer until it points to an odd number
+            while (left < N && arr[left] % 2 == 0) {
+                left++;
+            }
+            // Move right pointer until it points to an even number
+            while (right >= 0 && arr[right] % 2 != 0) {
+                right--;
+            }
+            // Swap arr[left] and arr[right] if left < right
+            if (left < right) {
+                int temp = arr[left];
+                arr[left] = arr[right];
+                arr[right] = temp;
+            }
+        }
+
+        // Print the segregated array
+        System.out.println("Array after Segregation");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        scanner.close();
+    }
+}
