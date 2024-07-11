@@ -1,0 +1,51 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read number of containers
+        int numContainers = scanner.nextInt();
+        int[] containers = new int[numContainers];
+
+        // Read container capacities
+        for (int i = 0; i < numContainers; i++) {
+            containers[i] = scanner.nextInt();
+        }
+
+        // Sort containers by capacity
+        Arrays.sort(containers);
+
+        // Initialize pointers
+        int maxPtr = numContainers - 1;
+        int minPtr = 0;
+
+        // Create an array to store pairs
+        int[][] pairs = new int[numContainers / 2 + 1][2];
+        int pairIdx = 0;
+
+        // Form pairs
+        while (maxPtr > minPtr) {
+            pairs[pairIdx][0] = containers[maxPtr];
+            pairs[pairIdx][1] = containers[minPtr];
+            pairIdx++;
+            maxPtr--;
+            minPtr++;
+        }
+
+        // If there's an odd number of containers, handle the last one
+        if (maxPtr == minPtr) {
+            pairs[pairIdx][0] = containers[maxPtr];
+            pairs[pairIdx][1] = 0; // No second container to pair with
+            pairIdx++;
+        }
+
+        // Print pairs
+        for (int i = 0; i < pairIdx; i++) {
+            System.out.println(pairs[i][0] + " " + pairs[i][1]);
+        }
+
+        scanner.close();
+    }
+}
