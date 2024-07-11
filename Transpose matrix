@@ -1,0 +1,42 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n;
+        if (scanner.hasNextInt()) {
+            n = scanner.nextInt();
+            if (n <= 0) {
+                System.out.println("Invalid input. Please enter a positive integer.");
+                return;
+            }
+        } else {
+            System.out.println("Invalid input. Please enter a positive integer.");
+            return;
+        }
+int[][] matrix = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (scanner.hasNextInt()) {
+                    matrix[i][j] = scanner.nextInt();
+                } else {
+                    System.out.println("Invalid input. Please enter integers.");
+                    return;
+                }
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("Transpose matrix is:");
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(matrix[j][i] + " ");
+            }
+            System.out.println();
+        }
+ scanner.close();
+    }
+}
