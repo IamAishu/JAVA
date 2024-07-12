@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main {
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[] groups = new int[n];
+        for (int i = 0; i < n; i++) {
+            groups[i] = scanner.nextInt();
+        }
+        int busCount = 0;
+        int currentBusCapacity = 0;
+for (int i = 0; i < n; i++) {
+            if (currentBusCapacity < groups[i]) {
+                busCount++;
+                currentBusCapacity = m;
+            }
+            currentBusCapacity -= groups[i]; 
+        }
+       System.out.println(busCount);
+        scanner.close();
+    }
+}
