@@ -1,0 +1,76 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the size of the matrix
+        int n = scanner.nextInt();
+
+        // Read the matrix elements into a 2D array
+        int[][] matrix = new int[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        // Calculate the magic constant M
+        int magicConstant = n * (n * n + 1) / 2;
+
+        // Check if it's a magic square
+        boolean isMagicSquare = true;
+
+        // Check distinctness of numbers
+        boolean[] seen = new boolean[n * n + 1];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] < 1 || matrix[i][j] > n * n) {
+                    isMagicSquare = false;
+                    break;
+                }
+                if (seen[matrix[i][j]]) {
+                    isMagicSquare = false;
+                    break;
+                }
+                seen[matrix[i][j]] = true;
+            }
+            if (!isMagicSquare) break;
+        }
+
+        // Calculate sums of rows, columns, and diagonals
+        int[] rowSum = new int[n];
+        int[] colSum = new int[n];
+        int diagonalSum1 = 0;
+        int diagonalSum2 = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                rowSum[i] += matrix[i][j];
+                colSum[j] += matrix[i][j];
+                if (i == j) diagonalSum1 += matrix[i][j];
+                if (i + j == n - 1) diagonalSum2 += matrix[i][j];
+            }
+        }
+
+        // Check if all sums are equal to the magic constant
+        if (diagonalSum1 != magicConstant || diagonalSum2 != magicConstant) {
+            isMagicSquare = false;
+        }
+        for (int i = 0; i < n; i++) {
+            if (rowSum[i] != magicConstant || colSum[i] != magicConstant) {
+                isMagicSquare = false;
+                break;
+            }
+        }
+
+        // Output the result
+        if (isMagicSquare) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+
+        scanner.close();
+    }
+}
