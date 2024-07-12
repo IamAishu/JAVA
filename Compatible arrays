@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read the size of the first array
+        int n1 = sc.nextInt();
+        int[] array1 = new int[n1];
+        // Read the elements of the first array
+        for (int i = 0; i < n1; i++) {
+            array1[i] = sc.nextInt();
+        }
+
+        // Read the size of the second array
+        int n2 = sc.nextInt();
+        int[] array2 = new int[n2];
+        // Read the elements of the second array
+        for (int i = 0; i < n2; i++) {
+            array2[i] = sc.nextInt();
+        }
+
+        // Check if the sizes are the same
+        if (n1 != n2) {
+            System.out.println("Incompatible");
+            return;
+        }
+        for (int i = 0; i < n1; i++) {
+            if (array1[i] < array2[i]) {
+                System.out.println("Incompatible");
+                return;
+            }
+        }
+
+        System.out.println("Compatible");
+    }
+}
