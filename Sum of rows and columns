@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
+        int[][] matrix = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+        int[] rowSum = new int[m];
+        int[] colSum = new int[n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                rowSum[i] += matrix[i][j];
+                colSum[j] += matrix[i][j];
+            }
+        }
+        int maxRowSum = Integer.MIN_VALUE;
+        int maxRowIndex = -1;
+        for (int i = 0; i < m; i++) {
+            if (rowSum[i] > maxRowSum) {
+                maxRowSum = rowSum[i];
+                maxRowIndex = i;
+            }
+        }
+ int maxColSum = Integer.MIN_VALUE;
+        int maxColIndex = -1;
+        for (int j = 0; j < n; j++) {
+            if (colSum[j] > maxColSum) {
+                maxColSum = colSum[j];
+                maxColIndex = j;
+            }
+        }
+        System.out.print("The Sum of rows is ");
+        for (int i = 0; i < m; i++) {
+            System.out.print(rowSum[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Row " + (maxRowIndex + 1) + " has a maximum sum");
+
+        System.out.print("The Sum of columns is ");
+        for (int j = 0; j < n; j++) {
+            System.out.print(colSum[j] + " ");
+        }
+        System.out.println();
+        System.out.println("Column " + (maxColIndex + 1) + " has the maximum sum");
+
+        scanner.close();
+    }
+}
