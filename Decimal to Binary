@@ -1,0 +1,18 @@
+import java.util.*;
+class Main
+{
+  public static int bin(int n)
+  {
+    if(n==0)
+      return 0;
+    else
+      return n%2 + (10* bin(n/2));
+  }
+    //Try out your code here
+     public static void main(String args[])
+     {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+    System.out.println(bin(n));
+  }
+}
