@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Read the integer input
+        int n = scanner.nextInt();
+
+        // Calculate the factorial using recursion
+        int result = factorial(n);
+
+        // Output the result
+        System.out.println("The factorial of " + n + " is " + result);
+
+        scanner.close();
+    }
+
+    // Recursive function to compute the factorial of a number
+    public static int factorial(int n) {
+        // Base case: if n is 0 or 1, return 1
+        if (n == 0 || n == 1) {
+            return 1;
+        }
+
+        // Recursive case: n * factorial(n - 1)
+        return n * factorial(n - 1);
+    }
+}
