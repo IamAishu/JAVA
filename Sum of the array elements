@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+        int sum = sumArray(arr, n - 1);
+
+        // Output the result
+        System.out.println(sum);
+
+        scanner.close();
+    }
+
+    // Recursive function to find the sum of array elements
+    public static int sumArray(int[] arr, int index) {
+        // Base case: if index is less than 0, return 0
+        if (index < 0) {
+            return 0;
+        }
+
+        // Recursive case: return current element plus sum of remaining elements
+        return arr[index] + sumArray(arr, index - 1);
+    }
+}
