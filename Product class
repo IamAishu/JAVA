@@ -1,0 +1,50 @@
+public class Product {
+    // Attributes of the Product class
+    private String name;
+    private int quantity;
+    private double price;
+
+    // Constructor to initialize the Product object
+    public Product(String name, int quantity, double price) {
+        this.name = name;
+        this.quantity = quantity;
+        this.price = price;
+    }
+
+    // Getter for the product name
+    public String getName() {
+        return name;
+    }
+
+    // Setter for the product name
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter for the product quantity
+    public int getQuantity() {
+        return quantity;
+    }
+
+    // Setter for the product quantity
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    // Getter for the product price
+    public double getPrice() {
+        return price;
+    }
+
+    // Setter for the product price
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    // Method to display product details
+    public void displayProduct() {
+        System.out.println("Product Name: " + name);
+        System.out.println("Quantity: " + quantity);
+        System.out.println("Price: $" + price);
+    }
+}
